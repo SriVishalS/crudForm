@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+a{
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+#updateModal,
+#insertModal,
+#resetModal,
+#delModal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.updateModal::backdrop,
+#insertModal::backdrop,
+#resetModal::backdrop,
+#delModal::backdrop 
+{
+  background-color: #b3cdd1;
+  background-image: linear-gradient(315deg, #b3cdd1 0%, #9fa4c4 74%);
+  opacity: 0.4;
+}
+
+input {
+  font-size: 20px;
+}
+hr {
+  margin: 0 !important;
+}
+.edit,
+.del {
+  margin: 10px;
+  background-color: grey;
+  cursor: pointer;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.webPageHeader {
+  width: 95%;
+  justify-content: space-between !important;
+}
+.webPageContainer {
+  height: 100%; 
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+.crudBoxcontainer {
+  height: 380px;
+  margin: 15px;
+}
+.crudBoxcontainer > div {
+  height: 70px;
+  width: 100%;
+}
+.submitButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+th {
+  font-size: 18px;
+}
+td {
+  height: 20px;
+  vertical-align: middle;
+}
+tr {
+  border-bottom: 2px solid #333;
+  text-align: center;
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/a6daf494b5.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div
+      class="crudFormContainer container-fluid container-sm container-md container-lg container-xl d-flex flex-column"
+      style="height: 100vh; width: 100vw"
+    >
+      <!-- ------------WEBPAGE CONTAINER------------------------- -->
+      <div
+        class="webPageContainer container-fluid container-sm container-md container-lg container-xl"
+        style="height: 1000px"
+      >
+        <!-- -------------WEB HEADER------------------- -->
+        <div class="webPageHeader flex">
+          <h1 style="padding: 10px"><a href="">JavaScript Crud</a></h1>
+          <div>
+            <button class="btn btn-primary" onclick="resetBtn()" id="resetBtn">
+              Reset Form
+            </button>
+          </div>
+        </div>
+        <!-- ----------------------HEADER UNDERLINE TAG---------------- -->
+        <hr style="width: 100%; color: #333" />
+        <!-- -------------------------CRUD FORM BOX CONTAINER------------------------- -->
+        <div
+          class="crudBoxcontainer"
+          style="border: 3px solid #333; width: 70%"
+        >
+          <!-- -----------------NAME FIELD----------------- -->
+          <div
+            class="crudField1"
+            style="
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="textSection">Name*</div>
+            <div class="inputSection">
+              <input
+                type="text"
+                name=""
+                id="nameInp"
+                style="height: 35px; width: 98%"
+              />
+            </div>
+          </div>
+          <!-- ---------------------Occupation FIELD------------------------- -->
+          <div
+            class="crudField2"
+            style="
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="textSection">Occupation</div>
+            <div class="inputSection">
+              <input
+                type="text"
+                name=""
+                id="occupInp"
+                style="height: 35px; width: 98%"
+              />
+            </div>
+          </div>
+          <!-- ------------------------Email Field----------------- -->
+          <div
+            class="crudField3"
+            style="
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="textSection">E-mail Id</div>
+            <div class="inputSection">
+              <input
+                type="text"
+                name=""
+                id="mailInp"
+                style="height: 35px; width: 98%"
+              />
+            </div>
+          </div>
+          <!-- ---------------------Salary Field------------------------- -->
+
+          <div
+            class="crudField4"
+            style="
+              padding: 10px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            "
+          >
+            <div class="textSection">Salary</div>
+            <div class="inputSection">
+              <input
+                type="text"
+                name=""
+                id="salInp"
+                style="height: 35px; width: 98%"
+              />
+            </div>
+          </div>
+          <!-- ---------------Submit Button----------------- -->
+
+          <div class="submitButton" style="width: 97%">
+            <button
+              style="
+                width: 150px;
+                height: 50px;
+                padding: 10px;
+                font-size: 13px;
+                color: white;
+              "
+              class="btn btn-success"
+              onclick="mainFunction()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        <!-- -----------------TABLE CONTAINER------------------------- -->
+        <table
+          class="crudTableContainer table table-hover container-fluid container-sm container-md container-lg container-xl container-xxl"
+          style="height: 100px; width: 95%; overflow: scroll"
+          id="crudTable"
+        >
+          <thead style="border-bottom: 3px solid black; color: cornflowerblue">
+            <th>NAME</th>
+            <th>OCCUPATION</th>
+            <th>EMAIL-ID</th>
+            <th>SALARY</th>
+            <th>Operations</th>
+          </thead>
+          <tbody style="height: 30px; overflow: scroll" id="crudBody"></tbody>
+        </table>
+        <!-- --------------MODALS--------------------------------- -->
+        <dialog
+          id="updateModal"
+          class="updateModal position-absolute"
+          style="height: 200px; width: 450px"
+        >
+          <center class="position-relative" style="top: 30%">
+            <h2 style="font-size: 18px !important; letter-spacing: 1px">
+              Data Has Been Updated SucessFully!
+            </h2>
+          </center>
+          <center class="position-relative" style="top: 30%">
+            <button
+              class="btn btn-warning"
+              style="border-radius: 50px"
+              id="closeBtn"
+            >
+              Okay!
+            </button>
+          </center>
+        </dialog>
+        <dialog
+          id="insertModal"
+          class="insertModal position-absolute"
+          style="height: 200px; width: 450px"
+        >
+          <center class="position-relative" style="top: 30%">
+            <h2 style="font-size: 18px !important; letter-spacing: 1px">
+              Data Has Been Inserted SucessFully!
+            </h2>
+          </center>
+          <center class="position-relative" style="top: 30%">
+            <button
+              class="btn btn-warning"
+              style="border-radius: 50px"
+              id="closeBtn1"
+            >
+              Okay!
+            </button>
+          </center>
+        </dialog>
+        <dialog
+          id="resetModal"
+          class="resetModal position-absolute"
+          style="height: 200px; width: 450px"
+        >
+          <center class="position-relative" style="top: 30%">
+            <h2 style="font-size: 18px !important; letter-spacing: 1px">
+              Form Has Been Refreshed!
+            </h2>
+          </center>
+          <center class="position-relative" style="top: 30%">
+            <button
+              class="btn btn-warning"
+              style="border-radius: 50px"
+              id="closeBtn2"
+            >
+              Okay!
+            </button>
+          </center>
+        </dialog>
+        <dialog
+          id="delModal"
+          class="delModal position-absolute"
+          style="height: 200px; width: 450px"
+        >
+          <center class="position-relative" style="top: 30%">
+            <h2 style="font-size: 18px !important; letter-spacing: 1px">
+              Current Data Has Been Deleted!
+            </h2>
+          </center>
+          <center class="position-relative" style="top: 30%">
+            <button
+              class="btn btn-warning"
+              style="border-radius: 50px"
+              id="closeBtn3"
+            >
+              Okay!
+            </button>
+          </center>
+        </dialog>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
