@@ -25,7 +25,7 @@
 
   <body>
     <div
-      class="crudFormContainer container-fluid container-sm container-md container-lg container-xl d-flex flex-column"
+      class="crudFormContainer container-fluid container-sm container-md container-lg container-xl"
       style="height: 100vh; width: 100vw"
     >
       <!-- ------------WEBPAGE CONTAINER------------------------- -->
@@ -45,10 +45,7 @@
         <!-- ----------------------HEADER UNDERLINE TAG---------------- -->
         <hr style="width: 100%; color: #333" />
         <!-- -------------------------CRUD FORM BOX CONTAINER------------------------- -->
-        <div
-          class="crudBoxcontainer"
-          style="border: 3px solid #333; width: 70%"
-        >
+        <div class="crudBoxcontainer" style="border: 3px solid #333">
           <!-- -----------------NAME FIELD----------------- -->
           <div
             class="crudField1"
@@ -59,7 +56,7 @@
               justify-content: center;
             "
           >
-            <div class="textSection">Name*</div>
+            <div class="textSection">Name</div>
             <div class="inputSection">
               <input
                 type="text"
@@ -150,18 +147,20 @@
         </div>
         <!-- -----------------TABLE CONTAINER------------------------- -->
         <table
-          class="crudTableContainer table table-hover container-fluid container-sm container-md container-lg container-xl container-xxl"
-          style="height: 100px; width: 95%; overflow: scroll"
+          class="crudTableContainer table table-striped table-sm table-md table-lg table-xl table-hover container-fluid container-sm container-md container-lg container-xl container-xxl"
+          style="width: 95%; overflow: scroll"
           id="crudTable"
         >
-          <thead style="border-bottom: 3px solid black; color: cornflowerblue">
-            <th>NAME</th>
-            <th>OCCUPATION</th>
-            <th>EMAIL-ID</th>
-            <th>SALARY</th>
-            <th>OPERATIONS</th>
+          <thead style="color: cornflowerblue" class="tableHeader">
+            <tr>
+              <th>NAME</th>
+              <th>OCCUPATION</th>
+              <th>EMAIL-ID</th>
+              <th>SALARY</th>
+              <th>OPERATIONS</th>
+            </tr>
           </thead>
-          <tbody style="height: 30px; overflow: scroll" id="crudBody"></tbody>
+          <tbody style="overflow: scroll" id="crudBody"></tbody>
         </table>
         <!-- --------------MODALS--------------------------------- -->
         <dialog
